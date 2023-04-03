@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/css/homePage.css">
+</head>
+<body>
+
+<div class="header">
+
+    <input type="checkbox" id="side-checkbox" />
+    <div class="side-panel">
+        <label class="side-button-2" for="side-checkbox">+</label>
+        <div class="side-title">Information about order</div>
+        <div class="order" th:each ="on : ${orderNotifications}">
+            <p>There will be a car to pick you up</p>
+            <h4 th:text="${on.driver}"></h4>
+            <p>at</p>
+            <h4 th:text="${on.model}"></h4>
+            <p >car number</p>
+            <h4 th:text="${on.carNumber}"></h4>
+            <p >To be paid</p>
+            <h4 th:text="${on.price}"></h4>
+            <p>Your order number - </p>
+            <h4 th:text="${on.id}"></h4>
+        </div>
+
+    </div>
+    <div class="side-button-1-wr">
+        <label class="side-button-1" for="side-checkbox">
+            <div class="side-b side-open"><img src="/pictures/slider.png"></div>
+            <div class="side-b side-close"><img src="/pictures/slider.png"></div>
+        </label>
+    </div>
+
+    <img class="logo2" src="/pictures/logo4.png">
+    <ul class="hr">
+        <li><a href="/">Home</a></li>
+        <li sec:authorize="hasRole('ROLE_DRIVER')"><a href="/request">Requests</a></li>
+        <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/request">Requests</a></li>
+        <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin">AdminPanel</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+
+</div>
+
+<div class="main">
+    <div class="info">
+        <h2>Taxi</h2>
+        <h3>Economy, comfort and business - travel <br> for any occasion</h3>
+        <table>
+                <tr>
+                    <td class="orderIcon">
+                        <img src="/pictures/icon.png">
+                    </td>
+                    <td class="orderIcon">
+                        <img src="/pictures/icon2.png">
+                    </td>
+                    <td class="orderIcon">
+                        <img src="/pictures/icon3.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="orderIcon">
+                        <p>Reasonable price</p>
+                    </td>
+                    <td class="orderIcon">
+                        <p>Quick serve</p>
+                    </td >
+                    <td class="orderIcon">
+                        <p>Good drivers</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form">
+            <form  th:action="@{/}" method="POST" modelAttribute="orderForm">
+                <div class="con">
+                    <div class="field-set">
+                        <input class="form-input" id="firstPoint" type="text" name="firstPoint" placeholder="First Point" required>
+                        <br>
+                        <input class="form-input" id="lastPoint" type="text" name="lastPoint" placeholder="Last Point" required>
+                        <br>
+                        <input class="form-input" id="number" type="text" name="number" placeholder="Number" required>
+                        <br>
+                        <input class="form-input" id="kilometers" type="text" name="kilometers" placeholder="Kilometers" required>
+                        <br>
+                        <select id="tariff" name="tariff">
+                            <option value="Economy">Economy</option>
+                            <option value="Comfort">Comfort</option>
+                            <option value="Business">Business</option>
+                        </select>
+                        <br>
+                        <button type="submit">Call a taxi</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

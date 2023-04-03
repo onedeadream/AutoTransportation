@@ -1,0 +1,294 @@
+body{
+    margin: 0;
+    background: url("/pictures/fon4.png");
+}
+.header{
+    margin: 10px;
+    width: auto;
+    height:auto;
+}
+
+ul.hr li {
+    list-style-type: none;
+    display: inline;
+    padding-right: 60px;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #f2a00a;
+    border-radius: 15px;
+    font-family: 'Akshar-Light'
+}
+
+.header ul {
+    padding: 35px;
+    margin: 0px;
+    display: inline-block;
+    float: right;
+    margin-right: 5%;
+}
+
+
+.logo2{
+    width: 100px;
+    height: 50px;
+    margin-left: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main{
+    display: inline-block;
+    margin-left: 15%;
+    width: 70%;
+    height: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+}
+
+.form-input {
+        width: 260px;
+        height: 50px;
+        margin-top: 2%;
+        font-size: 16px;
+        font-family: 'Abel', sans-serif;
+        color: #000000;
+        outline: none;
+        border: none;
+        border-radius: 15px;
+        text-indent: 15px;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(208,208,208,1) 0%, rgba(246,246,246,1) 100%);
+}
+
+button{
+    width: 260px;
+    height: 50px;
+    border-radius: 10px;
+    background: #000000;
+    margin-top: 2%;
+    color: #ffffff;
+    border-color: black;
+    border: none;
+}
+
+select[id="tariff"]{
+    width: 260px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 2%;
+    background: rgb(255, 241, 0);
+    text-align: center;
+    border: none;
+}
+
+h1{
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.info{
+    width:50%;
+    color: black;
+    float: left;
+    padding: 40px;
+    font-family: 'Akshar-Light';
+}
+
+.form{
+    width: 30%;
+    padding: 40px;
+    float: right;
+    text-align: center;
+}
+
+.orderIcon{
+    padding-right: 20px;
+    text-align: center;
+}
+
+.border{
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid #000000;
+}
+
+h2{
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+}
+
+h3{
+    font-size: 30px;
+}
+
+p{
+    display:inline;
+    font-size: 20px;
+}
+
+.order{
+    margin: 20px;
+    color: white;
+    font-size: 20px;
+}
+
+h4{
+    color: #000000;
+    background: white;
+    display: inline;
+}
+
+/* Оформление панели */
+#side-checkbox {
+    display: none;
+}
+.side-panel {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: -360px;
+    background: #333232;
+    transition: all 0.5s;
+    width: 320px;
+    height: 100vh;
+    box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+    color: #FFF100;
+    padding: 40px 20px;
+}
+.side-title {
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #BFE2FF;
+}
+/* Оформление кнопки на странице */
+.side-button-1-wr {
+    display: inline-block;
+    float: right;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+.side-button-1 {
+    display: inline-block;
+}
+.side-button-1 .side-b {
+    text-decoration: none;
+    position: relative;
+    font-size: 20px;
+    line-height: 20px;
+    color: #FFF;
+    cursor: pointer;
+}
+.side-button-1 .side-b:hover,
+.side-button-1 .side-b:active,
+.side-button-1 .side-b:focus {
+    color: #FFF;
+}
+.side-button-1 .side-b:after,
+.side-button-1 .side-b:before {
+    position: absolute;
+    height: 4px;
+    left: 50%;
+    bottom: -6px;
+    content: "";
+    transition: all 280ms ease-in-out;
+    width: 0;
+}
+
+.side-button-1 .side-b:before {
+    top: -6px;
+}
+.side-button-1 .side-b:hover:after,
+.side-button-1 .side-b:hover:before {
+    width: 100%;
+    left: 0;
+}
+/* Переключатели кнопки 1 */
+.side-button-1 .side-close {
+    display: none;
+}
+#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-open {
+    display: none;
+}
+#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-close {
+    display: block;
+}
+#side-checkbox:checked + .side-panel {
+    left: 0;
+}
+/* Оформление кнопки на панеле */
+.side-button-2 {
+    font-size: 30px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    transform: rotate(45deg);
+    color: #BFE2FF;
+    transition: all 280ms ease-in-out;
+}
+.side-button-2:hover {
+    transform: rotate(45deg) scale(1.1);
+    color: #FFF;
+}
+
+@font-face {
+	font-family: 'Akshar-Light';
+	src: url(/font/Akshar-Light.ttf);
+}
+
+.mainRequest{
+    font-family: 'Akshar-Light';
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: white;
+}
+
+.acceptReq{
+    width: 100px;
+    height: 20px;
+}
+
+.centerTable{
+    margin: 0 auto;
+    font-size: 17px;
+    text-align: center;
+}
+
+.mainAdmin{
+    font-family: 'Akshar-Light';
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: white;
+}
+
+.adminregister{
+    padding: 20px;
+}
+
+.allUsers{
+    margin: 0 auto;
+}
+
+
+
+.admin{
+    font-size: 30px;
+}
+
+

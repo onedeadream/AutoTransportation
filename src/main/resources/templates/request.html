@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/homePage.css">
+</head>
+<body>
+<div class="header">
+
+    <input type="checkbox" id="side-checkbox" />
+    <div class="side-panel">
+        <label class="side-button-2" for="side-checkbox">+</label>
+        <div class="side-title">Information about order</div>
+        <div class="order" th:each ="on : ${orderNotifications}">
+            <p>There will be a car to pick you up</p>
+            <h4 th:text="${on.driver}"></h4>
+            <p>at</p>
+            <h4 th:text="${on.model}"></h4>
+            <p >car number</p>
+            <h4 th:text="${on.carNumber}"></h4>
+            <p >To be paid</p>
+            <h4 th:text="${on.price}"></h4>
+            <p>Your order number - </p>
+            <h4 th:text="${on.id}"></h4>
+        </div>
+
+    </div>
+    <div class="side-button-1-wr">
+        <label class="side-button-1" for="side-checkbox">
+            <div class="side-b side-open"><img src="/pictures/slider.png"></div>
+            <div class="side-b side-close"><img src="/pictures/slider.png"></div>
+        </label>
+    </div>
+
+    <img class="logo2" src="/pictures/logo3.png">
+    <ul class="hr">
+        <li><a href="/">Home</a></li>
+        <li sec:authorize="hasRole('ROLE_DRIVER')"><a href="/request">Requests</a></li>
+        <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/request">Requests</a></li>
+        <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin">AdminPanel</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+
+</div>
+
+<div class="mainRequest">
+    <table class="centerTable">
+
+        <thead>
+        <th>Request №</th>
+        <th>First Point</th>
+        <th>Last Point</th>
+        <th>Kilometers</th>
+        <th>Number</th>
+        <th>Price</th>
+        <th>Accept</th>
+        </thead>
+
+        <div th:each ="od : ${allOrder}">
+            <tr>
+                <td class="border" th:text="${od.id}"></td>
+                <td class="border" th:text="${od.firstPoint}"></td>
+                <td class="border" th:text="${od.lastPoint}"></td>
+                <td class="border" th:text="${od.kilometers}"></td>
+                <td class="border" th:text="${od.number}"></td>
+                <td class="border" th:text="${od.payment}"></td>
+                <td class="border">
+                    <form action="/request" method="post">
+                        <input type="hidden" name="orderId" th:value="${od.id}"/>
+                        <input type="hidden" name="action" th:value="accept"/>
+                        <button type="submit" class="acceptReq">Принять</button>
+                    </form>
+                </td>
+            </tr>
+        </div>
+    </table>
+</div>
+
+
+</body>
+</html>

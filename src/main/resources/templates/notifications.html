@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="/css/homePage.css">
+</head>
+<body>
+
+<div class="header">
+  <img class="logo2" src="/pictures/logo2.png">
+  <ul class="hr">
+    <li><a href="/">Home</a></li>
+    <li sec:authorize="hasRole('ROLE_DRIVER')"><a href="/request">Requests</a></li>
+    <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/request">Requests</a></li>
+    <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin">AdminPanel</a></li>
+    <li sec:authorize="hasRole('ROLE_USER')"><a href="/notifications">Notifications</a></li>
+    <li><a href="/logout">Logout</a></li>
+  </ul>
+</div>
+
+
+
+</body>
+</html>
